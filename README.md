@@ -20,7 +20,7 @@ page loads.
 | CPU                  | 64 bit RISC-V                   |
 | Boot                 | OpenSBI 1.8 + U-Boot 2026.07    |
 | Memory               | 128 MB (configurable)           |
-| Storage              | VirtIO block, A/B + app partition (in-memory in the browser) |
+| Storage              | VirtIO block, A/B + app partition (kept in IndexedDB in the browser) |
 | Linux kernel         | 6.18                            |
 | IEx terminal         | VirtIO `ttyhvc0`                |
 | GPIO, I2C, SPI       | Emulated - [Elixir Circuits](https://github.com/elixir-circuits) |

@@ -11,8 +11,6 @@ images, and gives the bootcount/upgrade_available mechanism a writable
 backend on virtio-only machines such as TinyEMU.
 
 Signed-off-by: Lars Wikman <lars@underjord.io>
-Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01AwVxNHSmhVTamvcP1RTZHp
 ---
  env/Kconfig            |  19 +++++++-
  env/Makefile           |   1 +

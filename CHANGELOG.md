@@ -35,6 +35,10 @@ follows:
   durable immediately instead of waiting for an f2fs checkpoint.
 * Requires a TinyEMU with the OpenSBI fixes (time/mvendorid/PMP CSRs,
   HTIF `reg` in the device tree, HTIF keyboard input).
+* Reboot (and so booting an upgraded slot, or reverting one) needs a
+  TinyEMU with the QEMU-style `sifive,test0` syscon device and its
+  `syscon-reboot`/`syscon-poweroff` nodes: OpenSBI then resets the machine
+  instead of shutting it down over HTIF, which ends the emulator.
 
 ## v0.3.0
 

@@ -11,8 +11,6 @@ DISTRO_DEFAULTS together with SCSI or networking fails to compile with
 distro boot environment with CONFIG_DISTRO_DEFAULTS.
 
 Signed-off-by: Lars Wikman <lars@underjord.io>
-Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
-Claude-Session: https://claude.ai/code/session_01AwVxNHSmhVTamvcP1RTZHp
 ---
  include/configs/qemu-riscv.h | 4 ++++
  1 file changed, 4 insertions(+)
