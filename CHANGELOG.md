@@ -12,6 +12,17 @@ follows:
    releases, and Linux kernel updates. They're also made to fix bugs and add
    features to the build infrastructure.
 
+## v0.4.1
+
+This is a security and bug fix release.
+
+* Package updates
+  * [nerves_system_br 1.35.5](https://github.com/nerves-project/nerves_system_br/releases/tag/v1.35.5)
+  * [Buildroot 2026.08.2](https://lore.kernel.org/buildroot/buildroot-2026.08.2-announce-1794940330@buildroot.org/T/)
+  * [Erlang/OTP 29.1.3](https://erlang.org/download/OTP-29.1.3.README.md)
+  * [fwup 1.17.2](https://github.com/fwup-home/fwup/releases/tag/v1.17.2)
+  * Linux 6.18.58
+
 ## v0.4.0
 
 * Boot like a real Nerves device: OpenSBI (fw_jump) replaces the 2019 BBL
