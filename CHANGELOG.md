@@ -12,6 +12,15 @@ follows:
    releases, and Linux kernel updates. They're also made to fix bugs and add
    features to the build infrastructure.
 
+## v0.4.2
+
+* Linux: a patch (in `patches/linux`) makes virtio-i2c return `-ENXIO`
+  when nothing acknowledges an address, like other I2C adapters, instead
+  of 0 messages done, which `I2C_RDWR` users such as Circuits.I2C took for
+  success. The kernel already has virtio-gpio and virtio-i2c; a TinyEMU
+  with those devices (`gpio0` and `i2c0` in the VM config) gives the
+  machine `/dev/gpiochip0` and `/dev/i2c-0`.
+
 ## v0.4.1
 
 This is a security and bug fix release.

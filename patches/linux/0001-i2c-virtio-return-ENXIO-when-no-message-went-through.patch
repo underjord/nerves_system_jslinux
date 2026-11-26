@@ -1,0 +1,37 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Lars Wikman <lars@underjord.io>
+Date: Thu, 26 Nov 2026 22:46:07 +0000
+Subject: [PATCH] i2c: virtio: return -ENXIO when no message went through
+
+When the device fails the first message of a transfer (no device
+acknowledged the address), virtio_i2c_xfer() returns 0, the number of
+messages done. i2c-dev passes that on, and I2C_RDWR users that only check
+for a negative return (Circuits.I2C, for one) take it for success, so a
+scan finds a device at every address. Return -ENXIO, which adapters use
+for an address that was not acknowledged.
+---
+ drivers/i2c/busses/i2c-virtio.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/i2c/busses/i2c-virtio.c b/drivers/i2c/busses/i2c-virtio.c
+index af13819..8dffdef 100644
+--- a/drivers/i2c/busses/i2c-virtio.c
++++ b/drivers/i2c/busses/i2c-virtio.c
+@@ -159,6 +159,14 @@ static int virtio_i2c_xfer(struct i2c_adapter *adap, struct i2c_msg *msgs,
+ 
+ 	count = virtio_i2c_complete_reqs(vq, reqs, msgs, count);
+ 
++	/*
++	 * Not even the first message went through: nothing answered at that
++	 * address. Say so as other adapters do (see fault-codes.rst) instead
++	 * of returning 0, which I2C_RDWR users take for success.
++	 */
++	if (!count)
++		count = -ENXIO;
++
+ err_free:
+ 	kfree(reqs);
+ 	return count;
+-- 
+2.43.0
+
