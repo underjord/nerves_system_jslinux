@@ -68,7 +68,7 @@ Then add the `:nerves_system_jslinux` dependency to the `deps` function:
 
 ```elixir
     {:nerves_system_jslinux,
-     github: "underjord/nerves_system_jslinux", tag: "v0.4.2", runtime: false, targets: :jslinux},
+     github: "underjord/nerves_system_jslinux", tag: "v0.4.3", runtime: false, targets: :jslinux},
 ```
 
 Tagged versions have a prebuilt artifact on this repository's [GitHub

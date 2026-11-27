@@ -12,6 +12,14 @@ follows:
    releases, and Linux kernel updates. They're also made to fix bugs and add
    features to the build infrastructure.
 
+## v0.4.3
+
+* U-Boot 2026.07 is downloaded from git.u-boot-project.org, where U-Boot
+  releases now live (as in upstream Buildroot). Its old site, ftp.denx.de,
+  no longer answers, and the Nerves download mirror does not have this
+  version, so the system could not be built from source. Same tarball
+  (Buildroot's `uboot.hash` still checks it), so the images are unchanged.
+
 ## v0.4.2
 
 * Linux: a patch (in `patches/linux`) makes virtio-i2c return `-ENXIO`
