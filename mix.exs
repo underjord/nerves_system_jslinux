@@ -1,7 +1,7 @@
 defmodule NervesSystemJSLinux.MixProject do
   use Mix.Project
 
-  @github_organization "nerves-project"
+  @github_organization "underjord"
   @app :nerves_system_jslinux
   @source_url "https://github.com/#{@github_organization}/#{@app}"
   @version Path.join(__DIR__, "VERSION")

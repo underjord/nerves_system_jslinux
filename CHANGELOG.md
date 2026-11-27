@@ -20,6 +20,9 @@ follows:
   success. The kernel already has virtio-gpio and virtio-i2c; a TinyEMU
   with those devices (`gpio0` and `i2c0` in the VM config) gives the
   machine `/dev/gpiochip0` and `/dev/i2c-0`.
+* Prebuilt artifacts come from this fork's GitHub releases
+  (`underjord/nerves_system_jslinux`), so a project can depend on a tag
+  without building the system.
 
 ## v0.4.1
 

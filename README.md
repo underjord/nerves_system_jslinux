@@ -67,15 +67,16 @@ the top. It's ok to delete targets that you don't plan on using.
 Then add the `:nerves_system_jslinux` dependency to the `deps` function:
 
 ```elixir
-    {:nerves_system_jslinux, "~> 0.3", runtime: false, targets: :jslinux},
+    {:nerves_system_jslinux,
+     github: "underjord/nerves_system_jslinux", tag: "v0.4.2", runtime: false, targets: :jslinux},
 ```
 
-This will load the latest released version. To use the latest code on the `main`
-branch here, add the following line:
-
-```elixir
-    {:nerves_system_jslinux, runtime: false, targets: :jslinux, nerves: [compile: true], git: "https://github.com/fhunleth/nerves_system_jslinux", branch: "main"}
-```
+Tagged versions have a prebuilt artifact on this repository's [GitHub
+releases](https://github.com/underjord/nerves_system_jslinux/releases), which
+`mix deps.get` downloads, so nothing is built. (Hex has only the old 0.3
+series.) To build the system yourself instead, which needs Linux, about 10 GB
+and a while, add `nerves: [compile: true]` or use a `path:` dependency on a
+checkout.
 
 To build, run:
 
